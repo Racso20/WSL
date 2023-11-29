@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if (( $EUID != 0 )); then
+  echo "NECESITA SER ROOT PARA EJECUTAR ESTE INSTAlADOR"
+  exit
+fi
 apt update && apt upgrade -y
 
 mv interoperabilidad /etc/interoperabilidad
@@ -7,7 +11,7 @@ mv funciones /etc/funciones
 mv ipwsl /etc/ipwsl
 mv wsl.conf /etc/wsl.conf
 
-echo "Instalando SQUID"
+echo "INSTALANDO SQUID"
 apt install squid -y
 rm /etc/squid/squid.conf
 mv squid.conf /etc/squid/squid.conf
@@ -24,7 +28,7 @@ apt install lsd bat -y
 echo "Instalando Wordlist"
 apt install wordlists -y
 
-echo "Para mas herramientas revise kali.org/tools
+echo "Para mas herramientas revise kali.org/tools"
 
-echo "Ejecutar user.sh sin ser root"
+echo "Puede seguir la configuración de usuario ejecutando el archivo 'user.sh' sin permisos root"
 
