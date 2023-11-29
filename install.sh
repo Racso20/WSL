@@ -5,6 +5,7 @@ apt update && apt upgrade -y
 mv interoperabilidad /etc/interoperabilidad
 mv funciones /etc/funciones
 mv ipwsl /etc/ipwsl
+mv wsl.conf /etc/wsl.conf
 
 echo "Instalando SQUID"
 apt install squid -y
@@ -13,6 +14,8 @@ mv squid.conf /etc/squid/squid.conf
 echo 'squid:$apr1$ebz/wRCD$Dr9/2gKrAXRMA6UW5ro3U1' > /etc/squid/auth
 echo "El usuario de Squid es squid"
 echo "La clave de Squid es Kalisquid"
+echo "La ruta de Squid es kali.wsl2"
+echo "El puerto de Squid es 3128"
 squid -k reconfigure
 
 echo "Instalando LSDeluxe - BatCat"
