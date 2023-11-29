@@ -11,6 +11,8 @@ mv funciones /etc/funciones
 mv ipwsl /etc/ipwsl
 mv wsl.conf /etc/wsl.conf
 
+bash /etc/ipwsl
+bash /etc/interoperabilidad
 echo "INSTALANDO SQUID"
 apt install squid -y
 rm /etc/squid/squid.conf
