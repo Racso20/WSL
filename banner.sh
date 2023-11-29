@@ -39,4 +39,4 @@ fi
 
 chmod +x /etc/$usuario.sh
 gedit /etc/$usuario.sh
-firefox https://patorjk.com/software/taag/#p=display&f=Big&t=Racso
+firefox https://patorjk.com/software/taag/#p=display&f=Big&t=$usuario
