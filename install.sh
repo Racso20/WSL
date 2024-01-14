@@ -186,3 +186,4 @@ history -c && history -w
 echo -e $verde"[*] PROCESO TERMINADO, DEBE REINICIAR WSL"$reset"\n"
 echo -e $verde"[*] PARA ELLO DESDE POWERSHELL EJECUTAR 'wsl --shutdown'"$reset"\n"
 echo -e $cyan"[*] PUEDES MODIFICAR EL BANNER EN /etc/$usuario.sh"$reset"\n"
+echo -e $cyan"    desde la web https://patorjk.com/software/taag/#p=display&f=Big&t=Racso"$reset
