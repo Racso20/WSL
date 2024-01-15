@@ -31,7 +31,7 @@ touch ~/.hushlogin
 ##INSTALACION DE APLICACIONES
 echo -e $azul"\n\n[+] INSTALANDO APLICACIONES"$reset"\n"
 sleep 2
-sudo apt install python3 python3-pip wordlists seclists exploitdb man nmap wafw00f whatweb sqlmap lsd bat squid openvpn -y
+sudo apt install python3 python3-pip wordlists seclists exploitdb man nmap wafw00f whatweb sqlmap lsd bat squid openvpn testssl.sh -y
 
 ##REPARAR WFUZZ
 echo -e $amarillo"\n\n[+] SOLUCIONANDO ERROR DE WFUZZ"$reset"\n"
