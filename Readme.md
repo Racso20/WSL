@@ -43,8 +43,8 @@ git clone https://github.com/Racso20/WSL.git
   
 ---
 
-**Template Banner** https://patorjk.com/software/taag/#p=display&f=Big&t=Racso
+**Template Banner** <a href="https://patorjk.com/software/taag/#p=display&f=Big&t=Racso" target="_blank">Template Banner</a>
 
 **Autor:** Racso
 
-**Perfil de GitHub:** [Racso20](https://github.com/Racso20)
+**Perfil de GitHub:** <a href="https://github.com/Racso20" target="_blank">Racso20</a>
