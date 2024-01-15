@@ -16,7 +16,7 @@ Este script de configuración está diseñado para mejorar la experiencia de usu
 
 ## Requisitos
 
-- Ubuntu/Kali-linux o distribución compatible de WSL.
+- Kali-linux compatible de WSL.
 
 ## Uso
 
