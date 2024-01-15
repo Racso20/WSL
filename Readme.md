@@ -40,8 +40,11 @@ git clone https://github.com/Racso20/WSL.git
 
 - Puedes personalizar el banner en el archivo `/etc/$usuario.sh`.
 - Si deseas eliminar ZSH, sigue las instrucciones proporcionadas durante la ejecución del script.
-**TEMPLATE BANNER** https://patorjk.com/software/taag/#p=display&f=Big&t=Racso
+  
 ---
 
+**Template Banner** https://patorjk.com/software/taag/#p=display&f=Big&t=Racso
+
 **Autor:** Racso
+
 **Perfil de GitHub:** [Racso20](https://github.com/Racso20)
