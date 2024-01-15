@@ -16,7 +16,7 @@ Este script de configuración está diseñado para mejorar la experiencia de usu
 
 ## Requisitos
 
-- Kali-linux compatible de WSL.
+- Kali-linux compatible de WSL. (Con la Distro de Ubuntu genera error al instalar las aplicaciones)
 
 ## Uso
 
