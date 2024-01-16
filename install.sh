@@ -1,9 +1,7 @@
 #!/bin/bash
 
-
 ##VALORES GLOBALES
 windows=$(wslpath $(cmd.exe /c "echo %USERPROFILE%" | tr -d '\r'))
-
 escritorio="$windows/Desktop"
 descarga="$windows/Downloads"
 documentos="$windows/Documents"
@@ -41,8 +39,15 @@ sudo apt --purge remove python3-pycurl -y
 sudo apt install libcurl4-openssl-dev libssl-dev -y
 sudo pip3 install pycurl wfuzz
 sudo ln -s /usr/local/bin/wfuzz /usr/bin/wfuzz
+git clone -n --depth=1 --filter=tree:0 https://github.com/xmendez/wfuzz
+builtin cd wfuzz
+sudo git sparse-checkout set --no-cone wordlist
+sudo git checkout
+rm -rf .git
+mv ../wfuzz /usr/share/
+builtin cd
+sudo ln -s -f /usr/share/wfuzz /usr/share/wordlists/wfuzz
 
-## BIEN HASTA ACA
 
 ##CONFIGURAION DEL SISTEMA
 echo -e $azul"\n\n[+] DESCARGANDO COMPLEMENTOS DE WSL"$reset"\n"
@@ -77,7 +82,7 @@ sudo sed -i "s/# set mouse/set mouse/g" /etc/nanorc
 ###CONFIGURACION DEL INPUTRC
 sudo sh -c "head -n 38 /etc/inputrc > /etc/inputrc2"
 sudo sh -c "echo \"# set sudo in front of command\" >> /etc/inputrc2"
-sudo bash -c 'echo "\"\\e\\e\": \"\\e[Hsudo \\e[F\"" >> /etc/inputrc2'
+sudo bash -c 'echo "\"\\e\\e\": \"\\e[Hsudo \\e[F\"" >> /etc/inputrc2'
 sudo sh -c "tail -n 34 /etc/inputrc >> /etc/inputrc2"
 sudo rm /etc/inputrc
 sudo mv /etc/inputrc2 /etc/inputrc
