@@ -148,15 +148,13 @@ echo "if [ "$home"/.bashrc ]; then" > $home/.bash_profile
 echo -e "\t source "$home"/.bashrc" >> $home/.bash_profile
 echo "fi" >> $home/.bash_profile
 echo "" >> $home/.bash_profile
-echo "PROMPT_COMMAND='PS1_CMD1=\$(printf \"\\e]9;9;%s\\e\\\\\" \"\$(wslpath -w \"$PWD\")\")'; PS1='\${PS1_CMD1}\\[\\e[38;5;34m\\]┌──(\\[\\e[38;5;27m\\]\\u㉿\\h\\[\\e[38;5;34m\\])-[\\[\\e[0m\\]\\w\\[\\e[38;5;34m\\]]\\n└─\\[\\e[38;5;27m\\]\\\$\\[\\e[0m\\] '" >> $home/.bash_profile
-echo "" >> $home/.bash_profile
+echo "PROMPT_COMMAND='PS1_CMD1=\$(printf \"\\e]9;9;%s\\e\\\\\" \"\$(wslpath -w \"$PWD\")\")'; PS1='\\[\\e[38;5;34m\\]┌──(\\[\\e[38;5;27m\\]\\u㉿\\h\\[\\e[38;5;34m\\])-[\\[\\e[0m\\]\\w\\[\\e[38;5;34m\\]]\\n└─\\[\\e[38;5;27m\\]\\$ \\[\\e[0m\\]\${PS1_CMD1}'" >> $home/.bash_profile
 
 
 
 
 ##COMANDOS PARA BASHRC
 echo -e $azul"\n\n[+] CREANDO ALIAS DEL SISTEMA"$reset"\n"
-echo "cd ~" >> $home/.bashrc
 echo "/etc/$usuario.sh" >> $home/.bashrc
 echo ". /etc/funciones" >> $home/.bashrc
 echo "sudo /usr/bin/chown -R $usuario:$usuario /home/$usuario" >> $home/.bashrc
