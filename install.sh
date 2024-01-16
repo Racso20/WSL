@@ -71,6 +71,8 @@ echo -e $verde"\t[-] El usuario de Squid es squid"$reset
 echo -e $verde"\t[-] La clave de Squid es Kalisquid"$reset
 echo -e $verde"\t[-] El puerto de Squid es 3128"$reset
 sudo squid -k reconfigure
+sudo systemctl enable squid
+sudo systemctl start squid
 sleep 20
 
 
