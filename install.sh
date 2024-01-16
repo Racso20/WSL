@@ -29,7 +29,7 @@ touch ~/.hushlogin
 ##INSTALACION DE APLICACIONES
 echo -e $azul"\n\n[+] INSTALANDO APLICACIONES"$reset"\n"
 sleep 2
-sudo apt install python3 python3-pip wordlists seclists exploitdb man nmap wafw00f whatweb sqlmap lsd bat squid openvpn testssl.sh -y
+sudo apt install python3 python3-pip wordlists seclists exploitdb man nmap wafw00f whatweb sqlmap lsd bat squid openvpn testssl.sh xclip -y
 
 ##REPARAR WFUZZ
 echo -e $amarillo"\n\n[+] SOLUCIONANDO ERROR DE WFUZZ"$reset"\n"
@@ -124,7 +124,7 @@ sudo sh -c "echo '$usuario ALL=(ALL:ALL) NOPASSWD: /usr/bin/bash /etc/ipswl' >> 
 
 sudo chown -R $usuario:$usuario $home/*
 
-##CONFIGURANDO BASHRC Y ALIAS
+##CONFIGURANDO BASHRC, ALIAS Y BASH_PROFILE
 echo -e $azul"\n\n[+] CONFIGURANDO ALIAS"$reset"\n"
 echo "#WINDOWS ALIAS" >> $home/.bash_aliases
 echo "alias cmd='cmd.exe /c \"cmd\"'" >> $home/.bash_aliases
@@ -143,6 +143,14 @@ echo "alias cat='batcat --paging=never'" >> $home/.bash_aliases
 echo "alias catn='/usr/bin/cat'" >> $home/.bash_aliases
 echo "alias realip='curl -s ifconfig.me'" >> $home/.bash_aliases
 echo "alias clima='curl -4 http://wttr.in/?lang=es'" >> $home/.bash_aliases
+
+echo "PROMPT_COMMAND=\${PROMPT_COMMAND:+\"\$PROMPT_COMMAND; \"}'PS1_CMD1=\$(whoami); PS1_CMD2=\$(printf \"\e]9;9;%s\e\\\\\" \"\$(wslpath -w \"\$PWD\")\")'; PS1='\[\e[38;5;34m\]┌──(\[\e[38;5;27m\]\${PS1_CMD1}㉿\h\[\e[38;5;34m\])-[\[\e[0m\]\w\[\e[38;5;34m\]]\[\e[0m\]\${PS1_CMD2}\n\[\e[38;5;34m\]└─\[\e[38;5;27m\]\$\[\e[0m\] '" > .bash_profile
+echo "" >> .bash_profile
+
+echo "if [ "$home"/.bashrc ]; then" >> $home/.bash_profile
+echo -e "\t source "$home"/.bashrc" >> $home/.bash_profile
+echo "fi" >> $home/.bash_profile
+
 
 ##COMANDOS PARA BASHRC
 echo -e $azul"\n\n[+] CREANDO ALIAS DEL SISTEMA"$reset"\n"
