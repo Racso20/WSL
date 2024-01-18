@@ -71,8 +71,6 @@ echo -e $verde"\t[-] El usuario de Squid es squid"$reset
 echo -e $verde"\t[-] La clave de Squid es Kalisquid"$reset
 echo -e $verde"\t[-] El puerto de Squid es 3128"$reset
 sudo squid -k reconfigure
-sudo systemctl enable squid
-sudo systemctl start squid
 sleep 20
 
 
@@ -144,11 +142,11 @@ echo "alias catn='/usr/bin/cat'" >> $home/.bash_aliases
 echo "alias realip='curl -s ifconfig.me'" >> $home/.bash_aliases
 echo "alias clima='curl -4 http://wttr.in/?lang=es'" >> $home/.bash_aliases
 
-echo "if [ "$home"/.bashrc ]; then" > $home/.bash_profile
-echo -e "\t source "$home"/.bashrc" >> $home/.bash_profile
-echo "fi" >> $home/.bash_profile
-echo "" >> $home/.bash_profile
-echo "PROMPT_COMMAND='PS1_CMD1=\$(printf \"\\e]9;9;%s\\e\\\\\" \"\$(wslpath -w \"$PWD\")\")'; PS1='\\[\\e[38;5;34m\\]┌──(\\[\\e[38;5;27m\\]\\u㉿\\h\\[\\e[38;5;34m\\])-[\\[\\e[0m\\]\\w\\[\\e[38;5;34m\\]]\\n└─\\[\\e[38;5;27m\\]\\$ \\[\\e[0m\\]\${PS1_CMD1}'" >> $home/.bash_profile
+#echo "if [ "$home"/.bashrc ]; then" > $home/.bash_profile
+#echo -e "\t source "$home"/.bashrc" >> $home/.bash_profile
+#echo "fi" >> $home/.bash_profile
+#echo "" >> $home/.bash_profile
+#echo "PROMPT_COMMAND='PS1_CMD1=\$(printf \"\\e]9;9;%s\\e\\\\\" \"\$(wslpath -w \"$PWD\")\")'; PS1='\\[\\e[38;5;34m\\]┌──(\\[\\e[38;5;27m\\]\\u㉿\\h\\[\\e[38;5;34m\\])-[\\[\\e[0m\\]\\w\\[\\e[38;5;34m\\]]\\n└─\\[\\e[38;5;27m\\]\\$ \\[\\e[0m\\]\${PS1_CMD1}'" >> $home/.bash_profile
 
 
 
