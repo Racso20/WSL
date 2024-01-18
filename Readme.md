@@ -30,7 +30,15 @@ Este script de configuración está diseñado para mejorar la experiencia de usu
     ```
 
 3. Este script automatizará la configuración y mejoras en el entorno de WSL.
-4. Recuerda reiniciar WSL después de completar el proceso para aplicar todas las configuraciones.
+4. Desde Powershell reiniciar WSL después de completar el proceso para aplicar todas las configuraciones.
+   ```bash
+   wsl --shutdown
+   ```
+6. Ingrese nuevamente a WS y ejecute
+   ```bash
+   sudo systemctl enable squid
+   sudo systemctl start squid
+   ```
 
 **Nota:** Si prefieres clonar el repositorio manualmente, puedes hacerlo con el siguiente comando:
 ```bash
