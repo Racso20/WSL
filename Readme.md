@@ -24,9 +24,7 @@ Este script de configuración está diseñado para mejorar la experiencia de usu
 2. Descarga e instala el script usando los siguientes comandos:
 
     ```bash
-    wget https://raw.githubusercontent.com/Racso20/WSL/main/install.sh
-    chmod +x install.sh
-    ./install.sh
+    bash <(curl -s https://raw.githubusercontent.com/Racso20/WSL/main/install.sh)
     ```
 
 3. Este script automatizará la configuración y mejoras en el entorno de WSL.
