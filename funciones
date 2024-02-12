@@ -16,6 +16,51 @@ function extractPorts(){
         cat extractPorts.tmp; rm extractPorts.tmp
 }
 
+function wsl(){
+        local OPTIND
+        local OPTARG
+        local option
+
+        local maquina
+        local listar
+
+        tipo="HTB"
+        usage="WSL [-h ] [-t] -- Programa para realizar HTB ordenado
+        donde:
+        -h   Muestra el menu de ayuda
+        -l   Lista las maquinas en WSL
+        -t   Maquina a Terminar (default HTB)"
+                listar=0
+        while getopts 'hlt:' option; do
+                case "$option" in
+                        h) echo "$usage"
+                        ;;
+                        l) listar=1
+                        ;;
+                        t) maquina=$OPTARG
+                        ;;
+                        :) printf "missing argument for -%s\n" "$OPTARG" >&2
+                        echo "$usage" >&2
+                        ;;
+                        \?) printf "illegal option: -%s\n" "$OPTARG" >&2
+                        echo "$usage" >&2
+                        ;;
+                        *) printf "missing argument for -%s\n" "$OPTARG" >&2
+                        echo "$usage" >&2
+                        ;;
+                esac
+        done
+        if [ $listar == 1 ]; then
+                powershell.exe /c "wsl -l -v"
+        else
+                if [ ! -z "$maquina" ]; then
+                        powershell.exe /c "wsl -t $maquina"
+                else
+                        echo -n $usage
+                fi
+        fi
+}
+
 function mkt(){
         local OPTIND
         local OPTARG
@@ -29,7 +74,7 @@ function mkt(){
         local cargar
 
         tipo="HTB"
-        usage="$((basename "$0")) [-h -m -i] [-t] -- Programa para realizar HTB ordenado
+        usage="MKT [-h -m -i] [-t] -- Programa para realizar HTB ordenado
         donde:
         -h   Muestra el menu de ayuda
         -m   Nombre de la maquina a realizar
@@ -107,7 +152,7 @@ function exposePort(){
 
         salir=0
         servicio="get"
-        usage="$((basename "$0")) [-h -w -l] [-s] -- Programa para exponer puertos de Linux en Windows
+        usage="exposePort [-h -w -l] [-s] -- Programa para exponer puertos de Linux en Windows
         donde:
         -h   Muestra el menu de ayuda
         -w   Puerto en Windows
