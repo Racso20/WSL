@@ -25,7 +25,7 @@ function wsl(){
         local listar
 
         tipo="HTB"
-        usage="WSL [-h ] [-t] -- Programa para realizar HTB ordenado
+        usage="WSL [-h ] [-t] -- Ver/Cerrar maquinas en WSL
         donde:
         -h   Muestra el menu de ayuda
         -l   Lista las maquinas en WSL
