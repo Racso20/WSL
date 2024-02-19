@@ -115,7 +115,7 @@ function mkt(){
 
         if [ $seguir == 1 ]; then
                 ruta="/home/$usuario/Documentos/Maquinas/$tipo/$maquina"
-                mkdir -p $ruta/{nmap,contenido,exploits,scripts}
+                mkdir -p $ruta/{reconocimiento,contenido,exploits,scripts}
                 file='/etc/hosts'
                 cargar=1
                 while IFS= read -r line
