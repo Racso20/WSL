@@ -52,8 +52,8 @@ sudo ln -s -f /usr/share/wfuzz /usr/share/wordlists/wfuzz
 ##CONFIGURAION DEL SISTEMA
 echo -e $azul"\n\n[+] DESCARGANDO COMPLEMENTOS DE WSL"$reset"\n"
 sleep 2
-sudo wget https://raw.githubusercontent.com/Racso20/WSL/main/ipwsl -O /etc/ipswl
-sudo chmod +x /etc/ipswl
+sudo wget https://raw.githubusercontent.com/Racso20/WSL/main/ipwsl -O /etc/ipwsl
+sudo chmod +x /etc/ipwsl
 sudo wget https://raw.githubusercontent.com/Racso20/WSL/main/interoperabilidad -O /etc/interoperabilidad
 sudo chmod +x /etc/interoperabilidad
 sudo wget https://raw.githubusercontent.com/Racso20/WSL/main/wsl.conf -O /etc/wsl.conf
@@ -117,7 +117,7 @@ sudo ln -s -f $home /root
 builtin cd /root
 
 sudo sh -c "echo '$usuario ALL=(ALL:ALL) NOPASSWD: /usr/bin/chown -R $usuario\:$usuario /home/$usuario' >> /etc/sudoers.d/$usuario"
-sudo sh -c "echo '$usuario ALL=(ALL:ALL) NOPASSWD: /usr/bin/bash /etc/ipswl' >> /etc/sudoers.d/$usuario"
+sudo sh -c "echo '$usuario ALL=(ALL:ALL) NOPASSWD: /usr/bin/bash /etc/ipwsl' >> /etc/sudoers.d/$usuario"
 
 
 sudo chown -R $usuario:$usuario $home/*
@@ -156,7 +156,7 @@ echo -e $azul"\n\n[+] CREANDO ALIAS DEL SISTEMA"$reset"\n"
 echo "/etc/$usuario.sh" >> $home/.bashrc
 echo ". /etc/funciones" >> $home/.bashrc
 echo "sudo /usr/bin/chown -R $usuario:$usuario /home/$usuario" >> $home/.bashrc
-echo "sudo /usr/bin/bash /etc/ipswl" >> $home/.bashrc
+echo "sudo /usr/bin/bash /etc/ipwsl" >> $home/.bashrc
 
 ##ELIMINANDO ZSH
 echo -e $azul"\n[+] ACTUAlIZANDO LA BASE DE DATOS DE ARCHIVO"$reset"\n"
