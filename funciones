@@ -204,3 +204,42 @@ function exposePort(){
                 powershell /c "netsh interface portproxy show v4tov4" 2>/dev/null
         fi
 }
+
+function winfirewall(){
+
+        local OPTIND
+        local OPTARG
+        local option
+        local servicio
+
+        servicio="show"
+        usage="exposePort [-h] [-s] -- Programa para exponer puertos de Linux en Windows
+        donde:
+        -h   Muestra el menu de ayuda
+        -s   Status {SHOW;ON;OFF}"
+        while getopts 'h:s:' option; do
+                case "$option" in
+                        h) echo "$usage"
+                        ;;
+                        s) servicio=$OPTARG
+                        ;;
+                        :) printf "missing argument for -%s\n" "$OPTARG" >&2
+                        echo "$usage" >&2
+                        ;;
+                        \?) printf "illegal option: -%s\n" "$OPTARG" >&2
+                        echo "$usage" >&2
+                        ;;
+                        *) printf "missing argument for -%s\n" "$OPTARG" >&2
+                        echo "$usage" >&2
+                        ;;
+                esac
+        done
+        echo $servicio
+        if [ ${servicio^^} == "ON" ]; then
+                powershell /c "netsh advfirewall set allprofiles state on" 2>/dev/null
+        elif [ ${servicio^^} == "OFF" ]; then
+                powershell /c "netsh advfirewall set allprofiles state off" 2>/dev/null
+        else
+                powershell /c "netsh advfirewall show allprofiles state" 2>/dev/null
+        fi
+}
