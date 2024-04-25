@@ -140,7 +140,7 @@ echo "alias l='ls -CF --group-dirs=first'" >> $home/.bash_aliases
 echo "alias cat='batcat --paging=never'" >> $home/.bash_aliases
 echo "alias catn='/usr/bin/cat'" >> $home/.bash_aliases
 echo "alias realip='echo -e \"\$(curl -s ifconfig.me && echo \"\" && curl -s ifconfig.co)\" | uniq'" >> $home/.bash_aliases
-echo "alias clima='curl -4 http://wttr.in/?lang=es'" >> $home/.bash_aliases
+echo "alias clima='curl -4 https://wttr.in/?lang=es'" >> $home/.bash_aliases
 
 #echo "if [ "$home"/.bashrc ]; then" > $home/.bash_profile
 #echo -e "\t source "$home"/.bashrc" >> $home/.bash_profile
