@@ -29,8 +29,9 @@ function wsl(){
         donde:
         -h   Muestra el menu de ayuda
         -l   Lista las maquinas en WSL
-        -t   Maquina a Terminar (default HTB)"
-                listar=0
+        -t   Maquina a Terminar"
+        listar=0
+        salir=1
         while getopts 'hlt:' option; do
                 case "$option" in
                         h) echo "$usage"
@@ -41,22 +42,25 @@ function wsl(){
                         ;;
                         :) printf "missing argument for -%s\n" "$OPTARG" >&2
                         echo "$usage" >&2
+                        salir=0
                         ;;
                         \?) printf "illegal option: -%s\n" "$OPTARG" >&2
                         echo "$usage" >&2
+                        salir=0
                         ;;
                         *) printf "missing argument for -%s\n" "$OPTARG" >&2
                         echo "$usage" >&2
+                        salir=0
                         ;;
                 esac
         done
-        if [ $listar == 1 ]; then
-                powershell.exe /c "wsl -l -v"
-        else
-                if [ ! -z "$maquina" ]; then
+        if [ $salir == 1 ]; then
+                if [ $listar == 1 ]; then
+                        powershell.exe /c "wsl -l -v"
+                elif [ ! -z "$maquina" ]; then
                         powershell.exe /c "wsl -t $maquina"
                 else
-                        echo -n $usage
+                        echo "$usage" >&2
                 fi
         fi
 }
@@ -115,7 +119,7 @@ function mkt(){
 
         if [ $seguir == 1 ]; then
                 ruta="/home/$usuario/Documentos/Maquinas/$tipo/$maquina"
-                mkdir -p $ruta/{reconocimiento,contenido,exploits,scripts}
+                mkdir -p $ruta/{nmap,contenido,exploits,scripts}
                 file='/etc/hosts'
                 cargar=1
                 while IFS= read -r line
