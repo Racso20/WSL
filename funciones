@@ -172,7 +172,7 @@ function exposePort(){
         -h   Muestra el menu de ayuda
         -w   Puerto en Windows
         -l   Puerto en Linux
-        -s   {GET;START;STOP}"
+        -s   {START;STOP}"
         while getopts 'w:l:h:s:' option; do
                 case "$option" in
                         h) echo "$usage"
@@ -222,39 +222,45 @@ function exposePort(){
 
 function winfirewall(){
 
-        local OPTIND
-        local OPTARG
-        local option
-        local servicio
+    local OPTIND
+    local OPTARG
+    local option
+    local salir
 
-        servicio="show"
-        usage="exposePort [-h] [-s] -- Programa para exponer puertos de Linux en Windows
-        donde:
-        -h   Muestra el menu de ayuda
-        -s   Status {SHOW;ON;OFF}"
-        while getopts 'h:s:' option; do
-                case "$option" in
-                        h) echo "$usage"
-                        ;;
-                        s) servicio=$OPTARG
-                        ;;
-                        :) printf "missing argument for -%s\n" "$OPTARG" >&2
-                        echo "$usage" >&2
-                        ;;
-                        \?) printf "illegal option: -%s\n" "$OPTARG" >&2
-                        echo "$usage" >&2
-                        ;;
-                        *) printf "missing argument for -%s\n" "$OPTARG" >&2
-                        echo "$usage" >&2
-                        ;;
-                esac
-        done
-        echo $servicio
-        if [ ${servicio^^} == "ON" ]; then
-                powershell /c "netsh advfirewall set allprofiles state on" 2>/dev/null
-        elif [ ${servicio^^} == "OFF" ]; then
-                powershell /c "netsh advfirewall set allprofiles state off" 2>/dev/null
+    servicio="SHOW"  # Valor por defecto
+    salir=0
+    usage="winfirewall [-h] [-s [OPTION]] -- Programa para exponer puertos de Linux en Windows
+    donde:
+    -h   Muestra el menu de ayuda
+    -s   Status {ON;OFF}"
+
+    while getopts 'hs::' option; do
+        case "$option" in
+            h)
+                echo "AYUDA"
+                echo "$usage"
+                salir=1
+                ;;
+            s) servicio=$OPTARG  # Asigna ON o OFF si está presente
+               salir=0
+               ;;
+            \?)
+                echo "Opción no válida: -$OPTARG"
+                echo "$usage"
+                salir=1
+                ;;
+        esac
+    done
+
+    # Lógica para ejecutar el comando solo si no hubo error
+    if [ $salir == 0 ]; then
+        echo "$servicio"  # Muestra el valor de servicio
+        if [ "${servicio^^}" == "ON" ]; then
+            powershell /c "netsh advfirewall set allprofiles state on" 2>/dev/null
+        elif [ "${servicio^^}" == "OFF" ]; then
+            powershell /c "netsh advfirewall set allprofiles state off" 2>/dev/null
         else
-                powershell /c "netsh advfirewall show allprofiles state" 2>/dev/null
+            powershell /c "netsh advfirewall show allprofiles state" 2>/dev/null
         fi
+    fi
 }
