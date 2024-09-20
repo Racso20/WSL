@@ -16,6 +16,17 @@ function extractPorts(){
         cat extractPorts.tmp; rm extractPorts.tmp
 }
 
+function temp(){
+
+        temp=0
+        cel=0
+        aux=10
+        hightemp=$(powershell.exe /c "Get-WMIObject -Query \"SELECT * FROM Win32_PerfFormattedData_Counters_ThermalZoneInformation\" -Namespace \"root/CIMV2\"" | grep HighPrecisionTemperature)
+        temp=$(echo $hightemp | tr -d -c 0-9)
+        cel=$(((( $temp / 10 ))-((27315/100))))
+        echo Temperature : $cel°
+}
+
 function wsl(){
         local OPTIND
         local OPTARG
