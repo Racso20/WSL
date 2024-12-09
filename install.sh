@@ -23,13 +23,13 @@ echo -e $verde"[*] INSTALANDO WSL"$reset"\n"
 ##ACTUALIZACIÓN DE SISTEMA
 echo -e $azul"[*] ACTUALIZANDO SISTEMA"$reset"\n"
 sleep 2
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y && sudo apt full-upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
 touch ~/.hushlogin
 
 ##INSTALACION DE APLICACIONES
 echo -e $azul"\n\n[+] INSTALANDO APLICACIONES"$reset"\n"
 sleep 2
-sudo apt install python3 python3-pip wordlists seclists exploitdb man nmap wafw00f whatweb sqlmap lsd bat squid openvpn testssl.sh xclip jq wpscan hash-identifier traceroute -y
+sudo apt install python3 python3-pip wordlists seclists exploitdb man nmap wafw00f whatweb sqlmap lsd bat squid openvpn testssl.sh xclip jq wpscan hash-identifier traceroute wireshark burpsuite jhon metasploit-framework -y
 
 ##REPARAR WFUZZ
 echo -e $amarillo"\n\n[+] SOLUCIONANDO ERROR DE WFUZZ"$reset"\n"
@@ -194,7 +194,7 @@ sudo mandb
 sudo updatedb
 
 ##LIMPIAR HISTORIAL
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y && sudo apt full-upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove
 history -c && history -w
 echo -e $verde"[*] PROCESO TERMINADO, DEBE REINICIAR WSL"$reset"\n"
 echo -e $verde"[*] PARA ELLO DESDE POWERSHELL EJECUTAR 'wsl --shutdown'"$reset"\n"
