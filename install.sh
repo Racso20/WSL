@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##VALORES GLOBALES
-windows=$(wslpath $(cmd.exe /c "echo %USERPROFILE%" | tr -d '\r'))
+windows=$(echo $(wslpath $(cmd.exe /c "echo %USERPROFILE%" | tr -d '\r')) | tail -n 1)
 escritorio="$windows/Desktop"
 descarga="$windows/Downloads"
 documentos="$windows/Documents"
@@ -121,6 +121,8 @@ sudo sh -c "echo '$usuario ALL=(ALL:ALL) NOPASSWD: /usr/bin/bash /etc/ipwsl' >> 
 
 
 sudo chown -R $usuario:$usuario $home/*
+sudo bash -c "echo '127.0.0.1 kali kali-linux' >> /etc/hosts"
+sudo bash -c "echo '127.0.0.1 kali.wsl2' >> /etc/hosts"
 
 ##CONFIGURANDO BASHRC, ALIAS Y BASH_PROFILE
 echo -e $azul"\n\n[+] CONFIGURANDO ALIAS"$reset"\n"
