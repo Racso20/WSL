@@ -88,12 +88,12 @@ sudo rm /etc/inputrc
 sudo mv /etc/inputrc2 /etc/inputrc
 
 ##ESTANDARIZAR USUARIO A ROOT
-echo -e $azul"[+] APUNTANDO CARPETA ROOT Y DE WINDOWS AL USUARIO"$reset"\n"
-sleep 2
+#echo -e $azul"[+] APUNTANDO CARPETA ROOT Y DE WINDOWS AL USUARIO"$reset"\n"
+#sleep 2
 
-sudo ln -s -f $escritorio $home/Escritorio
-sudo ln -s -f $descarga $home/Descargas
-sudo ln -s -f $documentos $home/Documentos
+#sudo ln -s -f $escritorio $home/Escritorio
+#sudo ln -s -f $descarga $home/Descargas
+#sudo ln -s -f $documentos $home/Documentos
 
 ##AGREGANDO CARPETAS ONEDRIVE A USUARIO
 
