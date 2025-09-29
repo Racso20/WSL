@@ -134,7 +134,7 @@ echo "alias ipconfig='cmd.exe /c \"ipconfig\"'" >> $home/.bash_aliases
 echo "alias winget='cmd.exe /c \"winget\"'" >> $home/.bash_aliases
 echo "" >> $home/.bash_aliases
 echo "#LINUX ALIAS" >> $home/.bash_aliases
-echo "alias clear='printf \"\033c\" && /etc/$usuario.sh'" >> $home/.bash_aliases
+# echo "alias clear='printf \"\033c\" && /etc/$usuario.sh'" >> $home/.bash_aliases
 echo "alias ls='lsd --group-dirs=first'" >> $home/.bash_aliases
 echo "alias ll='lsd -l --group-dirs=first'" >> $home/.bash_aliases
 echo "alias la='lsd -A --group-dirs=first'" >> $home/.bash_aliases
@@ -155,7 +155,7 @@ echo "alias clima='curl -4 https://wttr.in/?lang=es'" >> $home/.bash_aliases
 
 ##COMANDOS PARA BASHRC
 echo -e $azul"\n\n[+] CREANDO ALIAS DEL SISTEMA"$reset"\n"
-echo "/etc/$usuario.sh" >> $home/.bashrc
+#cecho "/etc/$usuario.sh" >> $home/.bashrc
 echo ". /etc/funciones" >> $home/.bashrc
 echo "sudo /usr/bin/chown -R $usuario:$usuario /home/$usuario" >> $home/.bashrc
 echo "sudo /usr/bin/bash /etc/ipwsl" >> $home/.bashrc
